@@ -1,0 +1,38 @@
+name: format
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Dependencies
+      shell: bash
+      run: |
+        wget https://apt.llvm.org/llvm.sh
+        chmod +x llvm.sh
+        sudo ./llvm.sh 12
+        sudo apt-get install clang-format-12
+    - name: Clang-format
+      shell: bash
+      run: |
+        clang-format-12 -i \
+          $(find src/app -name '*.[ch]*') \
+          $(find src/cfg -name '*.[ch]*') \
+          $(find src/doc -name '*.[ch]*') \
+          $(find src/dio -name '*.[ch]*') \
+          $(find src/filters -name '*.[ch]*') \
+          $(find src/gen -name '*.[ch]*') \
+          $(find src/main -name '*.[ch]*') \
+          $(find src/net -name '*.[ch]*') \
+          $(find src/steam -name '*.[ch]*') \
+          $(find src/tests -name '*.[ch]*') \
+          $(find src/ui -name '*.[ch]*') \
+          $(find src/updater -name '*.[ch]*')
+    - name: Git stat
+      shell: bash
+      run: |
+        git diff --stat > stat.txt
+    - uses: actions/upload-artifact@v2
+      with:
+        name: stat
+        path: stat.txt
