@@ -75,3 +75,6 @@
 [submodule "third_party/cityhash"]
 	path = third_party/cityhash
 	url = https://github.com/aseprite/cityhash.git
+[submodule "third_party/curl"]
+	path = third_party/curl
+	url = https://github.com/aseprite/curl.git
