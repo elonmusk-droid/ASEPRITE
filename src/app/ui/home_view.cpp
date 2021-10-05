@@ -110,6 +110,13 @@ HomeView::~HomeView()
 void HomeView::dataRecoverySessionsAreReady()
 {
 #ifdef ENABLE_DATA_RECOVERY
+
+#ifdef ENABLE_TRIAL_VERSION
+  DRM_INVALID{
+    return;
+  }
+#endif
+
   if (App::instance()->dataRecovery()->hasRecoverySessions()) {
     // We highlight the "Recover Files" options because we came from a crash
     SkinTheme* theme = static_cast<SkinTheme*>(this->theme());
@@ -244,6 +251,13 @@ void HomeView::onNewUpdate(const std::string& url, const std::string& version)
 void HomeView::onRecoverSprites()
 {
 #ifdef ENABLE_DATA_RECOVERY
+
+#ifdef ENABLE_TRIAL_VERSION
+  DRM_INVALID{
+    return;
+  }
+#endif
+
   ASSERT(m_dataRecovery); // "Recover Files" button is hidden when
                           // data recovery is disabled (m_dataRecovery == nullptr)
   if (!m_dataRecovery)
