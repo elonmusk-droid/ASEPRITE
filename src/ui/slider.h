@@ -23,7 +23,7 @@ namespace ui {
 
   class Slider : public Widget {
   public:
-    Slider(int min, int max, int value, SliderDelegate* delegate = nullptr);
+    Slider(int min, int max, int value, bool readOnly = false, SliderDelegate* delegate = nullptr);
 
     int getMinValue() const { return m_min; }
     int getMaxValue() const { return m_max; }

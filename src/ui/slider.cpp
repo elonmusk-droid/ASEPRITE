@@ -29,12 +29,12 @@ static int slider_press_x;
 static int slider_press_value;
 static bool slider_press_left;
 
-Slider::Slider(int min, int max, int value, SliderDelegate* delegate)
+Slider::Slider(int min, int max, int value, bool readOnly, SliderDelegate* delegate)
   : Widget(kSliderWidget)
   , m_min(min)
   , m_max(max)
   , m_value(base::clamp(value, min, max))
-  , m_readOnly(false)
+  , m_readOnly(readOnly)
   , m_delegate(delegate)
 {
   setFocusStop(true);
