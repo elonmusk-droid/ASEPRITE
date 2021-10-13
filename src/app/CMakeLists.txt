@@ -332,6 +332,7 @@ if(ENABLE_UI)
     ui/context_bar.cpp
     ui/dithering_selector.cpp
     ui/doc_view.cpp
+    ui/dock.cpp
     ui/drop_down_button.cpp
     ui/dynamics_popup.cpp
     ui/editor/brush_preview.cpp
@@ -368,6 +369,7 @@ if(ENABLE_UI)
     ui/icon_button.cpp
     ui/input_chain.cpp
     ui/keyboard_shortcuts.cpp
+    ui/layout_selector.cpp
     ui/main_menu_bar.cpp
     ui/main_window.cpp
     ui/notifications.cpp
