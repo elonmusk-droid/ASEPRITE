@@ -136,6 +136,9 @@ static Item convert_to_item(TiXmlElement* elem)
   if (name == "listitem")
     return item.typeIncl("ui::ListItem",
                          "ui/listitem.h");
+  if (name == "textbox")
+    return item.typeIncl("ui::TextBox",
+                         "ui/textbox.h");
   if (name == "panel")
     return item.typeIncl("ui::Panel",
                          "ui/panel.h");
